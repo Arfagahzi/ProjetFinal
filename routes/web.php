@@ -82,7 +82,7 @@ Route::prefix("admin")->middleware(["auth", "isadmin"])->group(function () {
     Route::get('/show_add_etablissement', 'Admin\EtablissementController@Show_add_etablissement_page')->name('show_add_etablissement');
     Route::post('/add_etablissement', 'Admin\EtablissementController@add_etablissement')->name('add_etablissement');
     Route::get('/show_update_etablissement/{id_etab}','Admin\EtablissementController@update_etablissement')->name('show_update_etablissement');
-    Route::post('update_master_page','Admin\EtablissementController@update_etablissement_page')->name('update_master_page');
+    Route::post('update_etablissement','Admin\EtablissementController@updt_etab_page')->name('update_master_page');
     Route::get('/delete_etab/{id_e}','Admin\EtablissementController@delete_etab')->name('delete_etab');
 
     //////////////////////////////////////////////////////////
