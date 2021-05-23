@@ -1402,32 +1402,34 @@
 @extends('layouts.layouts_profile_admin.master')
 
 @section('contenu')
-    <!DOCTYPE html>
-    <!-- Created By CodingLab - www.codinglabweb.com -->
-    <html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <!---<title> Responsive Registration Form | CodingLab </title>--->
-        <link rel="stylesheet" href="style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                {{--        Style--}}
-        <link rel="stylesheet" href="/css/gerer_master.css">
-        {{--        Style--}}
-    </head>
-    <body>
-    <a href="{{route('add_master')}}">
-        <button type="button" class="btn btn-success">Ajouter Master</button>
-    </a>
-    <hr>
-    <div class="wrapper">
-        <h1> Liste Des Masters </h1>
-        @if(Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                {{Session::get('success')}}
-            </div>
-        @endif
-        <form action="" method="post">
-            @csrf
+        <!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{--        Style--}}
+    <link rel="stylesheet" href="/css/gerer_master.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    {{--        Style--}}
+</head>
+<body>
+<a href="{{route('add_master')}}">
+    <button type="button" class="btn btn-success">Ajouter Master</button>
+</a>
+<hr>
+<div class="wrapper">
+    <h1> Liste Des Masters </h1>
+    @if(Session::has('success'))
+        <div class="alert alert-success" role="alert">
+            {{Session::get('success')}}
+        </div>
+    @endif
+    <form action="" method="post">
+        @csrf
         <table class="table table-hover">
             <thead>
             <tr>
@@ -1454,8 +1456,8 @@
                         </a>
                     </td>
                     <td>
-                    <button type="button" class="btn btn-danger" onclick="deleteConfirmation({{$master->id}})">
-                        Supprimer </button>
+                        <button type="button" class="btn btn-danger" onclick="deleteConfirmation({{$master->id}})">
+                            Supprimer </button>
                     </td>
             </tr>
             @endforeach
@@ -1464,40 +1466,45 @@
         <script type="text/javascript">
             function deleteConfirmation(id) {
                 swal({
-                    title: "Delete?",
-                    text: "Please ensure and then confirm!",
-                    type: "warning",
-                    showCancelButton: !0,
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel!",
-                    reverseButtons: !0
-                }).then(function (e) {
-                    if (e.value === true) {
-                        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-                        $.ajax({
-                            type: 'POST',
-                            url: "{{url('/delete_master')}}/" + id,
-                            data: {_token: CSRF_TOKEN},
-                            dataType: 'JSON',
-                            success: function (results) {
-                                if (results.success === true) {
-                                    swal("Done!", results.message, "success");
-                                } else {
-                                    swal("Error!", results.message, "error");
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this imaginary file!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: "btn-danger",
+                        confirmButtonText: "Yes, delete it!",
+                        cancelButtonText: "No, cancel plx!",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    }, function(isConfirm) {
+                    console.log('isConfirm value => '+ isConfirm)
+                        if (isConfirm ) {
+                            console.log('isConfirm value  yes => '+ isConfirm)
+
+                           // var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                            $.ajax({
+                                type: 'POST',
+                                url: "{{url('/delete_master')}}/" + id,
+                                data: {_token: CSRF_TOKEN},
+                                dataType: 'JSON',
+                                success: function (results) {
+                                    if (results.success === true) {
+                                        swal("Done!", results.message, "success");
+                                    } else {
+                                        swal("Error!", results.message, "error");
+                                    }
                                 }
-                            }
-                        });
-                    } else {
-                        e.dismiss;
+                            });
+                        } else {
+                            e.dismiss;
                     }
                 }, function (dismiss) {
                     return false;
                 })
             }
         </script>
-        </form>
-    </div>
+    </form>
+</div>
 
-    </body>
-    </html>
+</body>
+</html>
 @endsection
