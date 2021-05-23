@@ -128,9 +128,7 @@ class ProfileController extends Controller
             "city"=> "required",
             "postal_code"=> "required",
             "phone"=> "required",
-
             "avatar"=> "required|image",
-
         ]);
 
 

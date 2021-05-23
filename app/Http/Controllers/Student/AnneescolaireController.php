@@ -30,12 +30,17 @@ class AnneescolaireController extends Controller
         return response()->json($data);
     }
 
-
+    /**find filiere by id etablissement
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function findfiliere(Request $request){
-
-        $data=Filiere::select('filiere','id')->where('etablissement_id',$request->id)->get();
+        $data = Filiere::select('filiere','id')
+                        ->where('etablissement_id',$request->id)
+                        ->get();
         return response()->json($data);
     }
+
     public function submit_data(Request $request)
     { $moyenne = $request->moyenne;
 
