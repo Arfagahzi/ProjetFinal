@@ -1414,6 +1414,8 @@
     <link rel="stylesheet" href="/css/gerer_master.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     {{--        Style--}}
 </head>
 <body>
@@ -1480,7 +1482,7 @@
                         if (isConfirm ) {
                             console.log('isConfirm value  yes => '+ isConfirm)
 
-                           // var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+                            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
                             $.ajax({
                                 type: 'POST',
                                 url: "{{url('/delete_master')}}/" + id,

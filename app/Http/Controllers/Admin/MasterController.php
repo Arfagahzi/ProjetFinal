@@ -11,7 +11,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class MasterController extends Controller
 {
     public function Show_master_page()
-    { $masters = Master::all();
+    {
+        $masters = Master::all();
         $i=1;
         return view('admin_folder.managemaster.gerermaster',['masters'=>$masters,'i'=>$i]);
     }
@@ -106,7 +107,7 @@ class MasterController extends Controller
      /////delete master /////
 
         public function delete_master($id_master) {
-           dd($id_master);
+         //dd($id_master);
          $delete=Master::where('id',$id_master)->delete();
             if ($delete == 1) {
                             $success = true;
