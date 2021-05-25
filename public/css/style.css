@@ -572,7 +572,6 @@ h1, h2, h3, h4, h5,
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #222;
     opacity: .7;
     border-bottom-right-radius: 0px;
     background-size: cover;
@@ -739,7 +738,9 @@ h1, h2, h3, h4, h5,
   color: #a2a2a2; }
 
 .hero-slide {
-  position: relative; }
+  position: relative;
+}
+
   .hero-slide .owl-nav .owl-prev,
   .hero-slide .owl-nav .owl-next {
     position: absolute;

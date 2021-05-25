@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="title">Registration</div>
+    <div class="title">Votre profile</div>
     <div class="content">
         <form action="{{route('student_profile_update')}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -59,13 +59,16 @@
 
                 <div class="input-box">
                     <span class="details">Date Naissance</span>
-                    <input id="birthday" type="text" class="form-control @error('birthday') is-invalid @enderror"
-                           name="birthday" value="{{ $user->birthday }}" required  autofocus>
-                    @error('birthday')
-                    <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <div class="col-md-12 form-group">
+
+                        <input type="date" id="start" value="2000-01-01" min="1980-01-01" max="2021-12-31"
+                               style=" width: inherit;"  id="birthday" type="text" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ $user->birthday }}" required  autofocus>
+                        @error('birthday')
+                        <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="input-box">
@@ -82,8 +85,8 @@
 
                 <div class="input-box">
                     <span class="details">Adresse locale</span>
-                    <input id="adresse" type="text" class="form-control @error('adresse') is-invalid @enderror"
-                           name="adresse" value="{{ $user->adresse }}" required  autofocus>
+                    <textarea id="adresse"  class="form-control @error('adresse') is-invalid @enderror"
+                              name="adresse"  rows="2" required  >{{ $user->adresse }}</textarea>
                     @error('adresse')
                     <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -130,12 +133,19 @@
 
                 <div class="input-box">
                     <span class="details">Sexe</span>
-                    <input id="sexe" type="text" class="form-control @error('sexe') is-invalid @enderror" name="sexe" value="{{ $user->sexe }}" required  autofocus>
-                    @error('sexe')
-                    <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                    @enderror
+                    <div class="col-md-12 form-group">
+
+                        <select id="select" name="sexe" class="form-control form-select" style="margin-top: 1px">
+
+                            <option value="h">Femme</option>
+                            <option value="f">Homme</option>
+                        </select>
+                        @error('sexe')
+                        <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+                        @enderror
+                    </div>
                 </div>
 
             </div>

@@ -23,9 +23,7 @@
     left: 0;
     top: 0;
     height: 1000px;
-    background: linear-gradient(
-        288deg
-        ,#a7efd1, #46c3ff,#0d4661);
+    background:#6187bd;
     z-index: 100;
     transition: width 300ms;
 

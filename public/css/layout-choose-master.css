@@ -471,3 +471,13 @@ h3 {
     color: #000000;
 }
 
+h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: revert;
+}
+
+
+td {
+    color: white;
+}

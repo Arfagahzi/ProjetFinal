@@ -117,7 +117,7 @@ class ProfileController extends Controller
 
     public function update_profile(Request $request)
     {
-//        dd($request->all());
+
         $this->validate($request,[
             "name" => "required" ,
             "last_name" => "required",
@@ -140,10 +140,12 @@ class ProfileController extends Controller
         $user->birthday = $request->post('birthday');
         $user->birth_adresse = $request->post('birth_adresse');
         $user->adresse = $request->post('adresse');
+
         $user->city = $request->post('city');
         $user->postal_code = $request->post('postal_code');
         $user->phone = $request->post('phone');
-        $user->phone = $request->post('avatar');
+
+        $user->avatar = $request->post('avatar');
 
         $user->profession = $request->post('profession');
         $user->company = $request->post('company');
@@ -157,7 +159,8 @@ class ProfileController extends Controller
 
 
     public function dossier_page($inscrit_id)
-    {$dossier=Dossier::where('inscrit_id',$inscrit_id)->get()->first();
+    {
+        $dossier=Dossier::where('inscrit_id',$inscrit_id)->get()->first();
 
         $user=auth()->user();
 

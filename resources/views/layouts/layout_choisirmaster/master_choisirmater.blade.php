@@ -22,30 +22,32 @@
 
 
     <div class="sidebar-menu">
-
-        <h4> Votre Demande de Condidature Selon Master</h4>
-        <table class="table table-striped">
-            <thead>
-
-            <tr  class="table-primary">
-                <th>ID</th>
-                <th>Nom</th>
-                <th>Type Master</th>
-                <th class="text-center">Master</th>
-            </tr>
-            </thead>
-            @foreach ($students as $student)
+                <div class="container">
+            <h2> Votre Demande de Condidature Selon Master</h2>
+            <table class="table table-bordered">
+                <thead>
                 <tr>
-                    <td scope="row " class="table-light" >{{ $i++ }}</td>
-                    <td  class="table-light">{{ $student->name }}</td>
-                    <td  class="table-light"> <a  style="color: #222222" href={{"/student/student_profile/".$student->id}}>{{ $student->title }}</a></td>
-
-                    <td  class="table-light">{{ $student->type }}</td>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Type Master</th>
+                    <th class="text-center">Master</th>
                 </tr>
-            @endforeach
+                </thead>
 
-        </table>
+                <tbody>
+                @foreach ($students as $student)
+                <tr>
+                    <td scope="row ">{{ $i++ }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td > <a  class="btn btn-success" href={{"/student/student_profile/".$student->id}}>{{ $student->title }}</a></td>
+                    <td>{{ $student->type }}</td>
 
+                </tr>
+                @endforeach
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 

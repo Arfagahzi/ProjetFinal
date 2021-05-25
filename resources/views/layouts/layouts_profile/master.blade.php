@@ -32,48 +32,37 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a href='{{"/student/student_profile/".session('inscrit_id')}}' class="active">
+                <a href= class="active">
                     <span class="las la-igloo"></span>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li>
+                <a href='{{"/student/student_profile/".session('inscrit_id')}}'>
+                    <span class="las la-clipboard-list"></span>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
                 <a href="{{'/student/student_folder/'.session('inscrit_id')}}">
                     <span class="las la-clipboard-list"></span>
-                    <span>Vos Coordonnées</span>
+                    <span>Dossier</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{'/student/Anneescolaire_page/'.session('inscrit_id')}}" >
                     <span class="las la-clipboard-list"></span>
-                    <span>  Baccalauriat</span>
+                    <span>  Annees scolaire</span>
                 </a>
             </li>
-            <li>
-                <a href="">
-                    <span class="las la-clipboard-list"></span>
-                    <span> Années Universitaires </span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="las la-edit"></span>
-                    <span>Modifier Coordonnées </span>
-                </a>
-            </li>
-            <li>
+
                 <a href="#" >
                     <span class="las la-print"></span>
                     <span> Imprimer Condidature </span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <span class="las la-tasks"></span>
-                    <span>Demande de candidature</span>
-                </a>
-            </li>
+
         </ul>
     </div>
 </div>
