@@ -10,7 +10,7 @@
 
 <center>
 
-
+<h2>salut tout le mononde </h2>
     @if(Session::has('error'))
         <div>
             {{Session::get('error')}}

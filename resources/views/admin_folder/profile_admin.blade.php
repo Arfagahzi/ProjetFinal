@@ -22,6 +22,7 @@
     <table class="table table-hover">
         <thead>
         <tr>
+
             <th scope="col">Photo</th>
             <th scope="col">Id</th>
             <th scope="col">Adresse</th>
