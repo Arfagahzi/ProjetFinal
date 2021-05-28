@@ -1,0 +1,56 @@
+-user:
+	id
+	email
+	name
+	password
+	created_at
+	updated_at
+	role = admin / student / teacher
+	last_name
+	cin
+	sexe: homme / femme
+	birthday
+	birth_adresse
+	adresse
+	city
+	postal_code
+	phone
+	profession
+	company
+	avatar
+	status
+
+-Master
+    id,
+    title,
+    type
+
+-Master_user (demande)
+    user_id // $table->foreignId("user_id")->constrained("users")->onDelete("cascaded");
+    master_id
+web
+-dossiers
+    id /5
+    id_user
+    bacaloria
+    moyen_bac....
+    diplome_bac...
+
+
+- annéscolaire
+    id
+    id_dossier
+
+
+- fileres
+
+
+-etablissements
+
+
+-critere_score
+id
+coeficient
+plus
+moins
+

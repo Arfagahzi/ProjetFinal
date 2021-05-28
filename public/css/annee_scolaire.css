@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /*height: 100vh;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*padding: 10px;*/
+    background: linear-gradient(
+        143deg, #a5e2f7, #ecc0c0);
+    margin: 100px;
+}
+.custom-info{}
+.custom-info .input-box{
+    display: flex;
+    align-items: center;
+}
+.custom-info .input-box label {
+    min-width: 120px;
+}
+.custom-info .input-box input {
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 300px;
+}
+
+@media (max-width: 584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .category {
+        width: 100%;
+    }
+
+    .content form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media (max-width: 459px) {
+    .container .content .category {
+        flex-direction: column;
+    }
+}
+
+.block_annee {
+    background-color: white;
+    width: 1200px;
+    padding-right: revert;
+    padding-left: revert;
+    padding-top: revert;
+}
+
+.form-select{
+    width: 50%;
+}
+.fild {
+    min-width: 0;
+    padding: 30px;
+    border: double;
+    background-color: white;
+    margin-top: 20px;
+}
+.button {
+    padding-top: 10px;
+}
+.col {
+    width: 200px;
+}
+.row {
+    padding-top: 20px;
+}
+
+.add_input_fields input{
+    margin: 5px 0;
+    padding: 5px 5px;
+}
+.add_input_fields focus{
+    outline: none;
+
+}
+.remove_field{
+    border: 1px solid #333;
+    padding: 2px 5px;
+    color: #333;
+    border-radius:   2px;
+    background: #efefef;
+}
+.remove_field i{
+    color: #656363;
+}
+.add_field input
+{
+    margin-right: 4px;
+}
+.item{
+    display: flex;
+}
+.item p:nth-child(1){
+
+    margin: 4.7rem;
+}
+.item p{
+    font-size: 23px;
+margin:16px 0 4px 0}
