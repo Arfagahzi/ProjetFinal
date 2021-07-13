@@ -5,8 +5,10 @@
     <title>Isg Sousse</title>
     <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" href="https://media-exp1.licdn.com/dms/image/C4E0BAQE3tYBbedpBuw/company-logo_200_200/0/1526295483398?e=2159024400&v=beta&t=8p4b1f4rN4VlzsOljoeVjejZ_4Za0QPX5ekrFX8r7ls" />
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">

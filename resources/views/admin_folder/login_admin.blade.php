@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
     <!-- STYLE CSS -->
-    <link rel="stylesheet" href="css/style_login.css">
+    <link rel="stylesheet" href="/css/style_login.css">
 </head>
 
 <body>
@@ -46,13 +46,15 @@ url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBAPDxIPDw8P
             <button>Se connecter
                 <i class="zmdi zmdi-arrow-right"></i>
             </button>
-            <div class="form-wrapper">
-                <h4>Mot de passe oublier !</h4>
-            </div>
-
+            <br>
+            @if (Route::has('password.request'))
+                <div class="form-wrapper" >
+                    <a  href="{{ route('password.request') }}"> <h4>Mot de passe oublier !</h4></a>
+                </div>
+            @endif
         </form>
     </div>
 </div>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>

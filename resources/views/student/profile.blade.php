@@ -2,19 +2,15 @@
 @extends('layouts.layouts_profile.master')
 
 @section('contenu')
-    <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <!---<title> Responsive Registration Form | CodingLab </title>--->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {{--        Style--}}
     <link rel="stylesheet" href="/css/profile_student.css">
     {{--        Style--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 
-</head>
-<body>
+
+
 <div class="container">
     <div class="title">Votre profile</div>
     <div class="content">
@@ -33,6 +29,7 @@
                 </div>
 
 
+
                 <div class="input-box">
                     <span class="details">Prénom</span>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -45,9 +42,10 @@
                 </div>
 
 
+
                 <div class="input-box">
                     <span class="details">Telephone</span>
-                    <input id="phone" type="text" class="form-control @error('') is-invalid @enderror"
+                    <input id="phone" type="tel" class="form-control  @error('') is-invalid @enderror"
                            name="phone" value="{{ $user->phone }}" required  autofocus>
                     @error('phone')
                     <span class="invalid-feedback" role="alert">
@@ -71,10 +69,11 @@
                     </div>
                 </div>
 
+
                 <div class="input-box">
                     <span class="details">Lieu De Naissance </span>
                     <input id="birth_adresse" type="text" class="form-control @error('birth_adresse') is-invalid @enderror"
-                           name="birth_adresse" value="{{ $user->birth_adresse }}" required  autofocus>
+                           name="birth_adresse" value="{{$user->birth_adresse}}" required  autofocus>
                     @error('birth_adresse')
                     <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -121,9 +120,9 @@
 
                 <div class="input-box">
                     <span class="details">Photo de Profile</span>
-                    <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" *
-                           name="avatar" value="{{ $user->avatar }}" required autocomplete="email" autofocus>
-                    @error('avatar')
+                    <input id="image" type="file" class="form-control @error('avatar') is-invalid @enderror" *
+                           name="image"  required autocomplete="email" autofocus>
+                    @error('image')
                     <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
                         </span>
@@ -137,8 +136,9 @@
 
                         <select id="select" name="sexe" class="form-control form-select" style="margin-top: 1px">
 
-                            <option value="h">Femme</option>
-                            <option value="f">Homme</option>
+                            <option value ="{{Auth::user()->sexe}}">{{Auth::user()->sexe}}</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Homme">Homme</option>
                         </select>
                         @error('sexe')
                         <span class="invalid-feedback" role="alert">
@@ -147,16 +147,43 @@
                         @enderror
                     </div>
                 </div>
-
             </div>
-
             <div class="button">
                 <input type="submit" value="Enregistrer">
             </div>
         </form>
+        <div class="alert alert-info" style="display: none;"></div>
+
     </div>
 </div>
 
-</body>
-</html>
+
+<script>
+    const phoneInputField = document.querySelector("#phone");
+    const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    const info = document.querySelector(".alert-info");
+
+    function process(event) {
+        event.preventDefault();
+
+        const phoneNumber = phoneInput.getNumber();
+
+        info.style.display = "";
+        info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+    }
+    function getIp(callback) {
+        fetch('https://ipinfo.io/json?token=<your token>', { headers: { 'Accept': 'application/json' }})
+            .then((resp) => resp.json())
+            .catch(() => {
+                return {
+                    country: 'tn',
+                };
+            })
+            .then((resp) => callback(resp.country));
+    }
+
+</script>
 @endsection

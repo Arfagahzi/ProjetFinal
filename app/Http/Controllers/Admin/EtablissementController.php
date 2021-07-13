@@ -111,7 +111,7 @@ class etablissementController extends Controller
         $etablissement->delete();
 
 
-        return redirect()->back()->with(['success'=>'Master Supprimer avec succes ']);
+        return redirect()->back()->with(['success'=>'Etablissement Supprimer avec succes ']);
 
     }
     /////end delete master /////

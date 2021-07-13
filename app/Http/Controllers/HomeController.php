@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth',['verified']);
     }
 
     /**
@@ -27,7 +29,11 @@ class HomeController extends Controller
     }
     public function home_admin()
     {
-        return view('admin_folder.profile_admin');
+//        $inscriptions = DB::table("users")->join("inscriptions", "users.id", "inscriptions.user_id")
+//            ->get();
+//$i=1;
+        $masters = Master::all();
+        return view('admin_folder.profile_admin', ['masters' => $masters]);
     }
 
 

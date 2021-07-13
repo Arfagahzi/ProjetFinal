@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin Panel</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>ISG Sousse </title>
+    <link rel="icon" type="image/png" href="https://media-exp1.licdn.com/dms/image/C4E0BAQE3tYBbedpBuw/company-logo_200_200/0/1526295483398?e=2159024400&v=beta&t=8p4b1f4rN4VlzsOljoeVjejZ_4Za0QPX5ekrFX8r7ls" />    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 {{--    Style--}}
     <link rel="stylesheet" href="/css/main_admin.css">
@@ -35,28 +35,33 @@
             <li>
                 <a href="{{ route('manage_teacher') }}">
                     <span class="las la-user-circle"></span>
-                    <span>Gerer Enseignant</span>
+                    <span>Gérer Enseignant</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('manage_master') }}">
                     <span class="las la-clipboard-list"></span>
-                    <span>Gerer les Masters</span>
+                    <span>Gérer Mastère</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('manage_etablissement') }}">
                     <span class="las la-university"></span>
-                    <span>Gerer Etablissement</span>
+                    <span>Gérer Etablissement</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('manage_filiere') }}">
                     <span class="las la-graduation-cap"></span>
-                    <span>Gerer Filiere</span>
+                    <span>Gérer Filiere</span>
                 </a>
             </li>
-
+            <li>
+                <a href="{{route('liste_admins')}}">
+                    <span class="las la-graduation-cap"></span>
+                    <span> Consulter liste Admin </span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
@@ -81,18 +86,18 @@
 
         <div class="action">
             <div class="profile" onclick="menuToogle();">
-                <img src="https://scontent.ftun5-1.fna.fbcdn.net/v/t1.6435-9/118656129_3419295371448283_2009178697794331873_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=tSV8hU64WdcAX-BrLG4&_nc_ht=scontent.ftun5-1.fna&oh=ad0b05684e37ec550de13e1a1b656c3c&oe=60B48CEC"
-                     width="50px" height="50px">
+                <img src="{{asset('/storage/images/'.Auth::user()->avatar)}}" alt="avatar" width="50px" height="50px">
+
             </div>
             <div class="menu">
-                <h3>Ghazi arfa <br><small>Etudiant</small></h3>
+                <h3>{{Auth::user()->name}} {{Auth::user()->last_name}} <br><br><small>Administrateur</small></h3>
                 <ul>
-                    <li><img src="https://image.flaticon.com/icons/png/128/1946/1946429.png"><a href="#">Edit Profile</a></li>
-                    <li><img src="https://image.flaticon.com/icons/png/128/3342/3342137.png"><a href="#">Change image</a></li>
-                    <li><img src="https://image.flaticon.com/icons/png/128/3064/3064197.png"><a href="#">Change password</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/1946/1946429.png"><a href="{{route('upd_profile_admin')}}">Modifier Profile</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/3342/3342137.png"><a href="{{route('admin_change_img')}}">Changer votre image</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/3064/3064197.png"><a href="{{route('change_pass_page')}}">Changer mot de passe</a></li>
                     <li><img src="https://image.flaticon.com/icons/png/128/1828/1828427.png">
                         <a href="{{ route('logout') }}"  onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">logout
+                         document.getElementById('logout-form').submit();">Déconnexion
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

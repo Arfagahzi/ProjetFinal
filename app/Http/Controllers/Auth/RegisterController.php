@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Student;
 use App\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -36,12 +38,18 @@ class RegisterController extends Controller
         $user = auth()->user();
         switch ($user->role) {
             case "student":
-                return route("home_student");
+                $student=new Student();
+                $student->user_id=auth()->user()->id;
+                $student->save();
+                return
+
+                    route("home_student");
+
                 break;
             case "admin":
                 return route("home_admin");
                 break;
-            case "teacher":
+            case "responsible_teacher":
                 return route("home_teacher");
                 break;
             default:
@@ -65,12 +73,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data )
     {
+
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'cin' => ['required', 'string', 'unique:users', 'max:12'],
+            'cin' => ['required', 'string', 'unique:users','min:8','max:12'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -82,15 +92,22 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'cin' => $data['cin'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            "role" => "student"
-        ]);
+    protected function create(array $data){
 
-}}
+
+     
+
+
+        return User::create([
+        'name' => $data['name'],
+        'last_name' => $data['last_name'],
+        'cin' => $data['cin'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        "role" => "student",
+        "avatar" => "prof.png",
+    ]);
+
+}
+
+}

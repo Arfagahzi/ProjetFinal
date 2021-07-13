@@ -46,9 +46,12 @@ url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBAPDxIPDw8P
             <button>Se connecter
                 <i class="zmdi zmdi-arrow-right"></i>
             </button>
-            <div class="form-wrapper">
-                <h4>Mot de passe oublier !</h4>
-            </div>
+            <br>
+            @if (Route::has('password.request'))
+                <div class="form-wrapper" >
+                    <a  href="{{ route('password.request') }}"> <h4>Mot de passe oublier !</h4></a>
+                </div>
+            @endif
 
         </form>
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -40,14 +41,16 @@ class LoginController extends Controller
 
     protected function redirectTo(){
         $user = auth()->user();
+
         switch ($user->role) {
             case "student":
+
                 return route("home_student");
                 break;
             case "admin":
                 return route("home_admin");
                 break;
-            case "teacher":
+            case "responsible_teacher":
                 return route("show_master");
                 break;
             default:

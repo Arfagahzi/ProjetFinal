@@ -12,11 +12,24 @@
 
 center {
     padding-left: 300px;
-
+    margin-top: 50px;
+    margin-left: -288px;
 }
 button  {
     width: 200px;
-    background: linear-gradient(136deg,#1d5d67,#aeebf5);
+    background:  #2f7dc1;
 
 }
+.alert-danger {
+    width: 400px;
+}
 
+.g{
+    color: white;
+    margin-left: 13px;
+}
+.dec,
+.decx{
+    color: white;
+    margin-right: 11px;
+}

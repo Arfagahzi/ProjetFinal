@@ -75,5 +75,6 @@ class Kernel extends HttpKernel
         "isteacher" => IsTeacherMiddleware::class,
         "isfullprofile" => IsFullProfileMiddleware::class,
         "ismasterteacher"=>isMasterTeacher::class,
+        'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
     ];
 }

@@ -22,10 +22,10 @@
     position: fixed;
     left: 0;
     top: 0;
-    height: 1000px;
+    height: 1500px;
     background: linear-gradient(
-        288deg
-        ,#a7efd1, #46c3ff,#0d4661);
+        82deg
+        , #101010,#454646);
     z-index: 100;
     transition: width 300ms;
 
@@ -218,7 +218,7 @@ td {
     color: #222222;
 }
 tr td:last-child{
-    display: flex;
+    margin-top: 22px;
     align-items: center;
 }
 

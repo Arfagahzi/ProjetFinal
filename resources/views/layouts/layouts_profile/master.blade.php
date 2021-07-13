@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin Panel</title>
-    <link rel="stylesheet"
+    <title>ISG Sousse</title>
+    <link rel="icon" type="image/png" href="https://media-exp1.licdn.com/dms/image/C4E0BAQE3tYBbedpBuw/company-logo_200_200/0/1526295483398?e=2159024400&v=beta&t=8p4b1f4rN4VlzsOljoeVjejZ_4Za0QPX5ekrFX8r7ls" />    <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -32,7 +32,7 @@
     <div class="sidebar-menu">
         <ul>
             <li>
-                <a href= class="active">
+                <a href class="active">
                     <span class="las la-igloo"></span>
                     <span>Dashboard</span>
                 </a>
@@ -56,8 +56,8 @@
                     <span>  Annees scolaire</span>
                 </a>
             </li>
-
-                <a href="#" >
+            <li>
+                <a href="{{'/student/imprimer_recu'}}" >
                     <span class="las la-print"></span>
                     <span> Imprimer Condidature </span>
                 </a>
@@ -84,12 +84,12 @@
             <div class="menu">
                 <h3>{{ Auth::user()->name }} {{ Auth::user()->last_name }} <br><small>Etudiant</small></h3>
                 <ul>
-                    <li><img src="https://image.flaticon.com/icons/png/128/1946/1946429.png"><a href="#">Edit Profile</a></li>
-                    <li><img src="https://image.flaticon.com/icons/png/128/3342/3342137.png"><a href="#">Change image</a></li>
-                    <li><img src="https://image.flaticon.com/icons/png/128/3064/3064197.png"><a href="#">Change password</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/1946/1946429.png"><a href="{{"/student/student_profile/".session('inscrit_id')}}">Modifier profile</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/3342/3342137.png"><a href="{{route('change_img')}}">Changer votre image</a></li>
+                    <li><img src="https://image.flaticon.com/icons/png/128/3064/3064197.png"><a href="{{route('page_changer_mot_de_passe')}}">Changer mot de passe</a></li>
                     <li><img src="https://image.flaticon.com/icons/png/128/1828/1828427.png">
                         <a href="{{ route('logout') }}"  onclick="event.preventDefault();
-                         document.getElementById('logout-form').submit();">logout
+                         document.getElementById('logout-form').submit();">Déconnexion
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
@@ -99,7 +99,9 @@
             </div>
         </div>
     </header>
+
     <main>
+
         @yield('contenu')
     </main>
 </div>

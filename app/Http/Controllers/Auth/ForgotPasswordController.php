@@ -19,7 +19,6 @@ class ForgotPasswordController extends Controller
     */
 public  function  forgot(){
 
-
 }
     use SendsPasswordResetEmails;
 }

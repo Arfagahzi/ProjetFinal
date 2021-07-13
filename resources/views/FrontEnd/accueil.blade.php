@@ -1,10 +1,11 @@
 
-<?php ?>
 @extends('layouts.layout')
 
 @section('content')
     <div class="hero-slide owl-carousel site-blocks-cover">
-        <div class="intro-section" style="background-image: url('https://content.mosaiquefm.net/uploads/content/thumbnails/ministere_de_l_enseignement_superieur_1574278473.png');    background-position: center; background-size: 1100px; background-repeat: no-repeat;">
+        
+        <div class="intro-section" style="   background-position: center; background-size: 1000px; background-repeat: no-repeat;">
+            <img src="/images/Concours Aux Master.jpg" >
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">

@@ -1087,3 +1087,22 @@ h1, h2, h3, h4, h5,
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+.master_rech{
+    text-align: center;
+    padding: 130px;
+    margin-top: 58px;
+}
+.left {
+    animation: anim 10s linear infinite;
+}
+@keyframes anim {
+    0%{transform: translateX(0);}
+    50%{transform: translateX(-100%);}
+    50%{transform: translateX(50%);}
+}
+
+.left img {
+    width: 50px;
+    padding-left: 8px;
+}

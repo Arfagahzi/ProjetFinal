@@ -34,6 +34,7 @@
                     </td>
                 <td>
                     <a href="{{"delete_etab/". $etablissement->id}}"><button type="button" class="btn btn-danger">Supprimer</button></a>
+
                 </td>
                     </tr>
                 @endforeach
@@ -46,5 +47,26 @@
     </div>
                 @include('sweetalert::alert')
 
-
+                <script>
+                    $(".deleteRecord").click(function () {
+                        var id=$(this).attr('rel');
+                        var delete_etab=$(this).attr('rel1');
+                        swal({
+                            title:'Tu es sûr ?',
+                            text:"Tu ne pourras pas revenir en arrière!",
+                            type:'warning',
+                            showCancelButton:true,
+                            confirmButtonColor:'#3085d6',
+                            cancelButtonColor:'#d33',
+                            confirmButtonText:'Oui, efface-le !',
+                            cancelButtonText:'Non, annulez !',
+                            confirmButtonClass:'btn btn-success',
+                            cancelButtonClass:'btn btn-danger',
+                            buttonsStyling:false,
+                            reverseButtons:true
+                        },function () {
+                            window.location.href="/admin/"+delete_etab+"/"+id;
+                        });
+                    });
+                </script>
 @endsection

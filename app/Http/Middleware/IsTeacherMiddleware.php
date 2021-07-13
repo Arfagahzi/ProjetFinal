@@ -15,7 +15,7 @@ class IsTeacherMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->role != "teacher"){
+        if (auth()->user()->role != "responsible_teacher"){
 
             abort(401);
         }

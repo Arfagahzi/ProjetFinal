@@ -14,14 +14,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: linear-gradient(
-        143deg, #a5e2f7, #ecc0c0);
+    background: whitesmoke;
 
 
 }
 
 .container {
-    margin-top: 200px;
+    margin-top: 16px;
     width: 100%;
     background-color: #fff;
     padding: 25px 30px;
@@ -74,6 +73,7 @@ form .input-box span.details {
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+    width: 500px;
 }
 
 .user-details .input-box input:focus,
@@ -136,12 +136,12 @@ form .button input {
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(231deg, #8de2f5, #80f1bc);
+    background: #6187bd;
 }
 
 form .button input:hover {
     /* transform: scale(0.99); */
-    background: linear-gradient(231deg, #80f1bc, #8de2f5);
+    background:#6187bd;
 }
 
 @media (max-width: 584px) {
@@ -175,3 +175,6 @@ form .button input:hover {
 }
 
 
+.form-select{
+    width: 86%;
+}

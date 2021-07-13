@@ -3,9 +3,13 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-9 d-none d-lg-block">
+                <div class="left">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/langfr-225px-Flag_of_Tunisia.svg.png" >
                 <a href="#" class="small mr-3">Bienvenue dans le site de l'Institut Supérieur de Gestion de Sousse </a>
                 <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span>  +216 73 332 978</a>
                 <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span>isgs@isgs.rnu.tn</a>
+                </div>
+
             </div>
 
         </div>
@@ -30,8 +34,8 @@
                         <li class="has-children">
                             <a  class="nav-link text-left">Master</a>
                             <ul class="dropdown">
-                                <li><a href="">Master Recherche</a></li>
-                                <li><a href="">Master Professionnel</a></li>
+                                <li><a href="{{route('master_rech')}}">Master Recherche</a></li>
+                                <li><a href="{{route('master_pro')}}">Master Professionnel</a></li>
                             </ul>
                         </li>
                         <li>

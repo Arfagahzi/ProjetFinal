@@ -10,12 +10,20 @@ class Master extends Model
         "id",
        "title",
         "type",
-        "detail"
+        "detail",
+        "image"
     ];
     public $timestamps =false;
 
     ////relations
+
+
     public  function teachers(){
-      return $this->hasMany(Teacher::class)  ;
+        // foreign jey user -> master
+      return $this->hasMany(User::class)  ;
+    }
+
+    public function critere(){
+        return $this->hasMany(Critere::class);
     }
 }

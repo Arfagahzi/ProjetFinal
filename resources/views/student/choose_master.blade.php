@@ -1,39 +1,57 @@
 @extends('layouts.layout_choisirmaster.master_choisirmater')
 @section('contenu')
-    <!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="/css/choose_master.css">
-</head>
-<body>
 
+
+    <link rel="stylesheet" href="/css/choose_master.css">
+
+    <nav class="navbar navbar-light bg-primary">
+    <span class="g">
+        Bienvenu dans Votre Espace {{Auth::user()->name}} {{Auth::user()->last_name}}
+    </span>
+        <span class="decx"><i class="las la-sign-out-alt"> <a  class="dec" href="{{ route('logout') }}"  onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">Déconnexion
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </a></i></span>
+    </nav>
 <center>
 
 
+    <h3>Selectioner Votre Master : </h3>
+        <br>
+{{--    @if(Session::has('success'))--}}
+{{--        <div class="alert alert-success" role="alert">--}}
+{{--            {{Session::get('success')}}--}}
+{{--        </div>--}}
+{{--    @endif--}}
+    @if(Session::has('e'))
+        <div class="alert alert-danger" role="alert">
+            {{Session::get('e')}}
+        </div>
+    @endif
     @if(Session::has('error'))
-        <div>
+        <div class="alert alert-danger" role="alert">
             {{Session::get('error')}}
         </div>
     @endif
-    <h3>Selectioner Votre Master : </h3>
-        <br>
-
         <form action="{{route('choisir_master')}}" method="post">
         @csrf
         <h6>Type Master :</h6>
 
         <select  name="type" style="width: 400px" class="type_master form-select" id="prod_cat_id" >
 
-            <option value="0" disabled="true" selected="true">-séléctionner votre type de Master-</option>
+            <option value="0" disabled="true" selected="true"required>-séléctionner votre type de Master-</option>
             <option value="recherche">Recherche</option>
             <option value="professionnel">Professionnelle</option>
+            <option value="Co-construit">Co-construit</option>
+
 
         </select>
         @error('type')
-        <span class="invalid-feedback" role="alert">
+        <div class="invalid-feedback " role="alert">
             <strong>{{ $message }}</strong>
-        </span>
+        </div>
         @enderror
 
         <br>
@@ -43,7 +61,7 @@
         </select>
         <br>
         <div class="button">
-        <button type="submit" class="btn btn-success">Valider</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
         </div>
 
     </form>
@@ -85,6 +103,6 @@
 
 </center>
 
-</body>
-</html>
+{{--    @include('sweetalert::alert')--}}
+
 @endsection

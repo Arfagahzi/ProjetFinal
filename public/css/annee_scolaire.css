@@ -64,14 +64,13 @@ body {
 
 .block_annee {
     background-color: white;
-    width: 1200px;
-    padding-right: revert;
-    padding-left: revert;
-    padding-top: revert;
+    margin-top: -100px;
+    padding: revert;
+    border: double;
 }
 
 .form-select{
-    width: 50%;
+    width: 100%;
 }
 .fild {
     min-width: 0;
@@ -122,3 +121,20 @@ body {
 .item p{
     font-size: 23px;
 margin:16px 0 4px 0}
+
+.ghazi {
+margin-top: -150px;
+}
+.btn-success{
+    margin-top: 10px;
+}
+.securite {
+    background: #eaeaea;
+    padding: 10px;
+    margin-top: 20px;
+}
+.securite-o{
+    background: #eaeaea;
+    padding: 10px;
+    margin-bottom: 4px;
+}

@@ -112,7 +112,7 @@ form .button input{
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, #193548, #a2a2a2);
+    background:#484848;
 }
 form .button input:hover{
     /* transform: scale(0.99); */

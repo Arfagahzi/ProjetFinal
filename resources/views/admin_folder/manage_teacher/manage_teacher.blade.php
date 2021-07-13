@@ -1,47 +1,65 @@
 @extends('layouts.layouts_profile_admin.master')
 @section('contenu')
-    <!DOCTYPE html>
-    <!-- Created By CodingLab - www.codinglabweb.com -->
-    <html lang="en" dir="ltr">
+
     <head>
         <meta charset="UTF-8">
-        <!---<title> Responsive Registration Form | CodingLab </title>--->
-        <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{--        Style--}}
         <link rel="stylesheet" href="/css/manage_teacher.css">
 {{--        Style--}}
     </head>
-    <body>
+
+
     <a href=" {{route("add_teacher_page")}}"><button type="button" class="btn btn-success">Ajouter Enseignant</button></a>
 
     <hr>
-    <div class="wrapper">
-    <h1> Liste Des Masters </h1>
-    </div>
     @if(Session::has('success'))
-                <div class="alert alert-danger" role="alert">
+                <div  class="alert alert-danger" role="alert">
                     {{Session::get('success')}}
                 </div>
             @endif
-
+    @if(Session::has('error'))
+        <div class="alert alert-danger" role="alert">
+            {{Session::get('error')}}
+        </div>
+    @endif
     <div class="container">
+        <h3 class="pb-3 mb-4 font-italic border-bottom gg">
+            Liste Des Mastères
+        </h3>
         <div class="row">
             @foreach($masters as $master)
-            <div class="col-12 col-sm-6 col-md-4 image-grid-item">
-                <div  class="entry-cover image-grid-cover has-image">
-                    <a href="#" class="image-grid-clickbox"></a>
-                    <a href="{{"teacher_master/". $master->id}}" class="cover-wrapper">{{$master->title}}</a>
+                <div class="col-md-6">
+                    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                        <div class="card-body d-flex flex-column align-items-start">
+                            <a href="{{"teacher_master/". $master->id}}"> <strong class="d-inline-block mb-2 text-primary">{{$master->title}}</strong></a>
+                            <h6 class="mb-0">
+                                <span  class="text-dark" >type de mastère </span>
+                            </h6>
+
+                            <div class="mb-1 text-muted small type_m">{{$master->type}}</div>
+                            <h6 class="mb-0">
+                                <span  class="text-dark" >Détail</span>
+                            </h6>
+                            <p class="card-text mb-auto small">{{$master->detail}}<br/></p><br>
+                            <a href="{{"teacher_master/". $master->id}}" class="btn btn-primary liste"> Accéeder au liste </a>
+                        </div>
+
+                        <img src="{{asset('/storage/images/'.$master->image)}}" alt="image" class="img">
+
+                    </div>
+
                 </div>
-            </div>
+
             @endforeach
 
         </div>
+
+
+
     </div>
-{{--     -}}
-{{--            <a href=" "><span></span></a>--}}
-{{--     --}}
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    </body>
-    </html>
+
 @endsection

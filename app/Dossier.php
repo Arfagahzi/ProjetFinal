@@ -8,8 +8,8 @@ class Dossier extends Model
 {
     protected $fillable = [
         "id",
-        "id_user",
-        "nbr_redoublement"  ,
+        "inscrit_id",
+                "nbr_redoublement"  ,
         "Annee_bac" ,
         "bac" ,
         "reo" ,
@@ -17,8 +17,16 @@ class Dossier extends Model
         "nom_diplome",
         "date_diplome",
         "img_diplome",
-        "pays",
-        "img_cin",
+        "certificat_succee_bac",
+        "session_bac",
+        "mention_bac",
+        "nature_diplome",
+        "img_cin_face1",
+        "img_cin_face2",
+        "img_reo",
         ];
+//    public function Student(){
+//        return $this->BelongsTo(User::class);
+//    }
 public $timestamps =false;
 }

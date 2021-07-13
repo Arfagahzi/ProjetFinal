@@ -42,11 +42,12 @@ class AnneescolaireController extends Controller
     }
 
     public function submit_data(Request $request)
-    { $moyenne = $request->moyenne;
-
+    {
+        $a= $request->annee;
         $session = $request->sesion;
         $montion = $request->montion;
         $universite = $request->universite;
+        $r = $request->resultat;
         $etablissement = $request->etablissement;
         $filiere = $request->filiere;
 
@@ -55,7 +56,9 @@ class AnneescolaireController extends Controller
         foreach($request->moyenne as $key=>$moy)
         {
             $data=new Anneescolaire();
+            $data->annee=$a[$key];
             $data->moyenne=$moy;
+            $data->resultat=$r[$key];
             $data->session=$session[$key];
             $data->mention=$montion[$key];
             $data->universite_id=$universite[$key];
@@ -65,8 +68,7 @@ class AnneescolaireController extends Controller
             $data->save();
 
         }
-        return redirect()->back()->with(['success'=>'Annes charger avec succée ']);
+        return view("student.imprimer_recu");
 
     }
-
 }

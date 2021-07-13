@@ -1,0 +1,43 @@
+<list_criteres>
+
+    <critere>
+
+        <nom> critere licence</nom>
+        <coeficientml1>1</coeficientml1>
+
+
+        <coeficientml2>1.5</coeficientml2>
+
+        <coeficientml3>1.5</coeficientml3>
+
+        <coeficientnbrredoublement>10</coeficientnbrredoublement>
+
+        <coeficientnbrcntrl>5</coeficientnbrcntrl>
+
+    </critere>
+    <critere>
+
+        <nom>Critere maitrise</nom>
+        <coeficientml1>1</coeficientml1>
+
+        <coeficientml2>1.5</coeficientml2>
+        <coeficientml3>1.5</coeficientml3>
+        <coeficientml4>1.5</coeficientml4>
+    </critere>
+    <critere>
+
+        <nom>Critere session bac</nom>
+        <coeficientsessionbac>1</coeficientsessionbac>
+
+    </critere>
+    <critere>
+
+        <nom>Critere moyenne bac</nom>
+        <coeficientmoy_bac>1</coeficientmoy_bac>
+    </critere>
+    <critere>
+
+        <nom>Critere nbr redoublement</nom>
+        <coeficientnbrredoublement>1</coeficientnbrredoublement>
+    </critere>
+</list_criteres>

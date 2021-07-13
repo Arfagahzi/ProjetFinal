@@ -15,7 +15,7 @@ class AddFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string("last_name");
-            $table->enum("role",["admin","student","teacher"])->default("student");
+            $table->enum("role",["admin","student","responsible_teacher"])->default("student");
             $table->unsignedInteger("cin")->nullable();
             $table->enum("sexe",["h","f"])->nullable();
             $table->date("birthday")->nullable();
@@ -27,7 +27,8 @@ class AddFieldsToUsersTable extends Migration
             $table->string("profession")->nullable();
             $table->string("company")->nullable();
             $table->string("avatar")->nullable();
-            $table->boolean("status")->default();
+            $table->enum("etat",["actif","archive"]);
+
 
         });
     }
